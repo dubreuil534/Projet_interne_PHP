@@ -11,6 +11,16 @@
 require_once "_header.php";
 ?>
 <table>
+<tr>
+    <td> Rectangle </td>
+</tr>
+    <tr>
+        <td> Carrer </td>
+    </tr>
+
+    <tr>
+        <td> Cercle </td>
+    </tr>
 
 
 
