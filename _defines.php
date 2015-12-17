@@ -1,7 +1,3 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ddubreui
- * Date: 2015-12-17
- * Time: 12:02
- */
+define("SITE_NAME","PhPat");
+define("SITE_URL","http://phpat.projetisi.com");

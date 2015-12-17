@@ -1,17 +1,13 @@
+<?php require_once "_defines.php";
+?><?php
+
+require_once "view_part/_page_base.php";
+
+?>
 <?php
-    //initialisation ici
- ?>
+require_once "view_part/_footer.php";
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-<?php
+?>
 
 
- ?>
-</body>
-</html>
+
