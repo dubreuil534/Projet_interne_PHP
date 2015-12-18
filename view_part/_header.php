@@ -1,5 +1,4 @@
 <div id="header">
-    <?php
-    require "_main_menu.php";
-    ?>
+    <?php require_once "_loginout_form.php"; ?>
+    <?php require_once "_main_menu.php"; ?>
 </div>

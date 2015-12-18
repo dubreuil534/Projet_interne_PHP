@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?= SITE_NAME ?></title>
+    <title><?= SITE_NAME . ' - ' . ucfirst($site_data[PAGE_ID]) ?></title>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
@@ -17,7 +17,6 @@ require_once "_header.php";
     <tr>
         <td> Carrer </td>
     </tr>
-
     <tr>
         <td> Cercle </td>
     </tr>

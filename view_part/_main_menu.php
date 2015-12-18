@@ -4,11 +4,8 @@
    "Menu" => "menu.php",
    "Contact" => "contact.php",
  );?><ul><?php
-
-foreach ($menu_data as $link => $lienvalue ){
-
- echo "<li><a href=".$lienvalue.">".$link."</a></li>";
-}
+ foreach ($menu_data as $link => $lienvalue ){
+  echo "<li><a href=".$lienvalue.">".$link."</a></li>";}
 ?></ul>
 
 
