@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
-<div id="main"></div>
+<div id="main">
 <?php
 require_once "_header.php";
 ?>
@@ -21,18 +21,4 @@ require_once "_header.php";
     <tr>
         <td> Cercle </td>
     </tr>
-
-
-
-
-
-
 </table>
-
-
-
-
-<?php
-require_once "_footer.php";
-?>
-
