@@ -9,5 +9,5 @@ require_once "db/_talkmsg_data.php";
         <span class="tmsg_time"><?php echo $talk_msg_data[1] </span>
         <span class="tmsg_username"><?php echo $talk_msg_data[1]</span>
 </div>
-<p class>
+<class>
 
