@@ -1,6 +1,17 @@
 <?php
 var_dump($_POST);
-// validation ici
+$prenom_ok = false;
+if (array_key_exists("prenom", $_POST)) {
+    $prenom = filter_input(INPUT_POST,"prenom",FILTER_SANITIZE_MAGIC_QUOTES);
+    $prenom_ok = (1 == preg_match("/^[a-z]{4,}$/",$prenom));
+}
+
+
+
+if ($prenom_ok == true){
+    header("location: index.php");
+
+}
 ?>
 
 

@@ -1,3 +1,4 @@
+<h1>Inscription</h1>
 <?php
 var_dump($_POST);  //inspecter les données post
 require_once "_defines.php";
