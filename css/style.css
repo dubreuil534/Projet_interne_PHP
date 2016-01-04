@@ -10,9 +10,12 @@ padding: 0;
 }
  li {
      margin-left: 2px;
+
+
+ }
+
+ .menu {
      display: inline-block;
-
-
  }
 
  ul li a {
@@ -56,5 +59,9 @@ padding: 0;
      padding: 20px;
      border: 2px solid black;
      color: black;
+     margin-top: 100px;
+ }
+
+ #formulaire{
      margin-top: 100px;
  }

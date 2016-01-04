@@ -2,7 +2,6 @@
 <?php require_once "_defines.php";
 require_once "data/_main_data.php";
 $site_data[PAGE_ID] = "Accueil";
-var_dump($site_data);
 require_once "view_part/_page_base.php";
 require_once "view_part/_page_bottom.php";
 
