@@ -9,5 +9,6 @@ $site_data[PAGE_ID] = "inscription";
 
 <div id="main">
     <?php require_once "view_part/_inscription.php"; ?></div>
+<?php require_once 'view_part/_footer.php';
 
 
