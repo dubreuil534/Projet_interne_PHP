@@ -35,7 +35,7 @@ if (array_key_exists("password", $_POST)) {
 
 
 if ($prenom_ok && $nom_ok && $courriel_ok && $passord_ok == true){
-    header("location: view_part/_validationOK.php");
+    header("location: validationOK.php");
     exit;
 }
 ?>
