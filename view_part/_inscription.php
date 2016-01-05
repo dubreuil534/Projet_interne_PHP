@@ -1,11 +1,18 @@
 <?php
+
+$in_post = array_key_exists("register",$_POST); //Permet d'effectuer un neutrage sur le programme sans mettre false.
+
 //var_dump($_POST);
 $prenom_ok = false;
+$prenom_msg = ""; //Message de feedback validation. affichier sinon vide
 if (array_key_exists("prenom", $_POST)) {
     $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_STRING);
     $prenom_ok = (1 == preg_match("/^[a-z ,.'-]+$/i",$prenom));
+    If (! $prenom_ok){ // le prénom n'est pas valide.
+        $prenom_msg = "Le prénom ne fonctionne pas ... Recommencer (Min 2 caractère).";
+    }
 }
-//var_dump($prenom_ok);
+var_dump($prenom_ok);
 $nom_ok = false;
 if (array_key_exists("nom", $_POST)) {
     $nom = filter_input(INPUT_POST,"nom",FILTER_SANITIZE_STRING);
@@ -33,17 +40,17 @@ if ($prenom_ok && $nom_ok && $courriel_ok && $passord_ok == true){
 }
 ?>
 
-
 <div>
     <form id="formulaire" method="post" name="formulaire">
         <label for="prenom">Prenom :</label>
-        <input type="text" name="prenom" id="prenom"/>
+        <input type="text" name="prenom" id="prenom"
+        class="<?php echo $in_post && $prenom_msg ?>"/>
         <label for="nom">Nom :</label>
         <input type="text" name="nom" id="nom"/>
         <label for="courriel">Courriel :</label>
         <input type="text" name="courriel" id="courriel"/>
         <label for="password">Mot de passe :</label>
         <input type="password" name="password" id="password"/>
-        <input type="submit" value="S'inscrire"/>
+        <input type="submit" name="register" value="S'inscrire"/>
     </form>
 </div>
