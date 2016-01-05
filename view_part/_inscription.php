@@ -1,33 +1,35 @@
 <?php
-var_dump($_POST);
+//var_dump($_POST);
 $prenom_ok = false;
 if (array_key_exists("prenom", $_POST)) {
-    $prenom = filter_input(INPUT_POST,"prenom",FILTER_SANITIZE_MAGIC_QUOTES);
+    $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_STRING);
     $prenom_ok = (1 == preg_match("/^[a-z ,.'-]+$/i",$prenom));
 }
-var_dump($prenom_ok);
+//var_dump($prenom_ok);
 $nom_ok = false;
 if (array_key_exists("nom", $_POST)) {
-    $nom = filter_input(INPUT_POST,"nom",FILTER_SANITIZE_MAGIC_QUOTES);
+    $nom = filter_input(INPUT_POST,"nom",FILTER_SANITIZE_STRING);
     $nom_ok = (1 == preg_match("/^[a-z ,.'-]+$/i",$nom));
 }
-var_dump($nom_ok);
+//var_dump($nom_ok);
 $courriel_ok = false;
 if (array_key_exists("courriel", $_POST)) {
-    $courriel_ok = (filter_input(INPUT_POST,"courriel",FILTER_VALIDATE_EMAIL));
+    $courriel = filter_input(INPUT_POST,"courriel",FILTER_SANITIZE_EMAIL);
+    $courriel = (filter_var($courriel,FILTER_VALIDATE_EMAIL));
+    $courriel_ok = (false !== $courriel);
 }
-var_dump($courriel_ok);
+//var_dump($courriel_ok);
 $passord_ok = false;
 if (array_key_exists("password", $_POST)) {
-    $password = filter_input(INPUT_POST,"password",FILTER_SANITIZE_MAGIC_QUOTES);
-    $passord_ok = (1 == preg_match("/^[a-zA-Z0-9]{8,}$/",$password));
+    $password = filter_input(INPUT_POST,"password",FILTER_SANITIZE_STRING);
+    $passord_ok = (1 == preg_match("/^[a-zA-Z0-9%&$!*?]{8,}$/",$password));
 }
-var_dump($passord_ok);
+//var_dump($passord_ok);
 
 
 if ($prenom_ok && $nom_ok && $courriel_ok && $passord_ok == true){
     header("location: view_part/_validationOK.php");
-
+    exit;
 }
 ?>
 
