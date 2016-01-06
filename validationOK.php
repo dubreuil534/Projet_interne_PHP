@@ -11,4 +11,4 @@
 
 <p class="validation"><?php
 echo "Vous avez reussie votre inscription !!!  Nous allons vous redirigez vers la page d'accueil" ;?></p>
-<?php header( "refresh:5;url=../index.php" ); ?>
+<?php header( "refresh:5;url=index.php" ); ?>
