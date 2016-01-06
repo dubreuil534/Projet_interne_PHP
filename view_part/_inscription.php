@@ -14,6 +14,7 @@ if (array_key_exists("prenom", $_POST)) {
 }
 //var_dump($prenom_ok);
 $nom_ok = false;
+$nom_msg = ""; //Message de feedback validation. affichier sinon vide
 if (array_key_exists("nom", $_POST)) {
     $nom = filter_input(INPUT_POST, "nom",FILTER_SANITIZE_STRING);
     $nom_ok = (1 == preg_match("/^[a-z ,.'-]+$/i",$nom));
@@ -23,6 +24,7 @@ if (array_key_exists("nom", $_POST)) {
 }
 //var_dump($nom_ok);
 $courriel_ok = false;
+$courriel_msg = ""; //Message de feedback validation. affichier sinon vide
 if (array_key_exists("courriel", $_POST)) {
     $courriel = filter_input(INPUT_POST,"courriel",FILTER_SANITIZE_EMAIL);
     $courriel = (filter_var($courriel,FILTER_VALIDATE_EMAIL));
@@ -33,6 +35,7 @@ if (array_key_exists("courriel", $_POST)) {
 }
 //var_dump($courriel_ok);
 $passord_ok = false;
+$password_msg = ""; //Message de feedback validation. affichier sinon vide
 if (array_key_exists("password", $_POST)) {
     $password = filter_input(INPUT_POST,"password",FILTER_SANITIZE_STRING);
     $passord_ok = (1 == preg_match("/^[a-zA-Z0-9%&$!*?]{8,}$/",$password));
