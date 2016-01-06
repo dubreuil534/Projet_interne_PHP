@@ -71,9 +71,13 @@ padding: 0;
      font-size: 50px;
  }
  #login {
-     margin-left: 100px;
+     margin-left: 400px;
+     font-family: "Arial Black"
  }
  #milieu {
      margin-top: 50px;
      text-align: center;
+ }
+
+ .error {color: #FF0000;
  }
