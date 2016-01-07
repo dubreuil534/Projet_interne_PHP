@@ -10,7 +10,5 @@
 <?php
 require_once "_header.php";
 ?>
-    <div id="milieu"><h2>Vivre PHP !!!</h2>
-    <img src="images/PHP_Logo.png" alt="Mountain View" style="width:304px;height:228px;">
-    </div>
+
 

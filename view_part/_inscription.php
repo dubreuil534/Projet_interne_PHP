@@ -87,8 +87,6 @@ if ($prenom_ok && $nom_ok && $courriel_ok && $passord_ok && $pseudo_ok == true){
         <label for="password">Password : </label>
         <input type="password" name="password" id="password" value="<?php echo array_key_exists('mot_passe', $_POST) ? $_POST['mot_passe'] : '' ?>"/>
         <span class="<?php echo $in_post && ! $passord_ok ? 'error' : '';?>"> <?php echo $password_msg;?></span>
-
-
         <input class="submit" type="submit" name="register" id="register" value="S'inscrire"/>
 
     </form>
