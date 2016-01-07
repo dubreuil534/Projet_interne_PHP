@@ -1,5 +1,6 @@
 <?php
 
+
 $in_post = array_key_exists("register",$_POST); //Permet d'effectuer un neutrage sur le programme sans mettre false.
 
 //var_dump($_POST);
@@ -43,10 +44,27 @@ if (array_key_exists("password", $_POST)) {
         $password_msg = "(Votre mot de passe n'est pas valise).";
     }
 }
+
+$pseudo_ok = false;
+$pseudo_msg = ""; //Message de feedback validation. affichier sinon vide
+if (array_key_exists("pseudo", $_POST)) {
+    $pseudo = filter_input(INPUT_POST,"pseudo",FILTER_SANITIZE_STRING);
+    require_once "db/_user.php";
+    $pseudo_ok = (1 == preg_match("/^[a-zA-Z0-9]{4,}$/",$pseudo));
+    If (! $pseudo_ok){ // le prénom n'est pas valide.
+        $pseudo_msg = "(Votre mot de passe n'est pas valise).";
+    }
+    if ($pseudo_ok){
+
+        echo "Le username ".$pseudo. " est déja pris";
+    };
+
+}
 //var_dump($passord_ok);
 
 
-if ($prenom_ok && $nom_ok && $courriel_ok && $passord_ok == true){
+if ($prenom_ok && $nom_ok && $courriel_ok && $passord_ok && $pseudo_ok == true){
+    $createuser = user_add($pseudo, $password, $prenom, $nom, $courriel);
     header("location: validationOK.php");
     exit;
 }
@@ -54,6 +72,9 @@ if ($prenom_ok && $nom_ok && $courriel_ok && $passord_ok == true){
 
 <div>
     <form id="formulaire" method="post" name="formulaire">
+        <label for="pseudo">Pseudo : </label>
+        <input type="text" name="pseudo" id="pseudo" value="<?php echo array_key_exists('pseudo', $_POST) ? $_POST['pseudo'] : '' ?>"/>
+        <span class="<?php echo $in_post && ! $pseudo_ok ? 'error' : '';?>"> <?php echo $pseudo_msg;?></span>
         <label for="prenom">Prénom : </label>
         <input type="text" name="prenom" id="prenom" value="<?php echo array_key_exists('prenom', $_POST) ? $_POST['prenom'] : '' ?>"/>
         <span class="<?php echo $in_post && ! $prenom_ok ? 'error' : '';?>"> <?php echo $prenom_msg;?></span>
@@ -66,6 +87,9 @@ if ($prenom_ok && $nom_ok && $courriel_ok && $passord_ok == true){
         <label for="password">Password : </label>
         <input type="password" name="password" id="password" value="<?php echo array_key_exists('mot_passe', $_POST) ? $_POST['mot_passe'] : '' ?>"/>
         <span class="<?php echo $in_post && ! $passord_ok ? 'error' : '';?>"> <?php echo $password_msg;?></span>
-        <input type="submit" name="register" id="register" value="S'inscrire"/>
+
+
+        <input class="submit" type="submit" name="register" id="register" value="S'inscrire"/>
+
     </form>
 </div>
